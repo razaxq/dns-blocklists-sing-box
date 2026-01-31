@@ -1,0 +1,34 @@
+name: Update Rules
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Runs at 02:00 UTC every day
+  workflow_dispatch: # Allows manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Update Script
+        run: |
+          chmod +x update.sh
+          ./update.sh
+
+      - name: Update Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: latest
+          name: Latest Rules
+          files: rule-set/*.srs
+          body: |
+            Auto-updated rules based on HaGeZi DNS blocklists.
+            Updated on: ${{ env.DATE }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
