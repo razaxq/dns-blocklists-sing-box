@@ -21,6 +21,14 @@ jobs:
           chmod +x update.sh
           ./update.sh
 
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add rule-set/*.srs
+          git commit -m "Auto-update rules [skip ci]" || exit 0
+          git push
+
       - name: Update Release
         uses: softprops/action-gh-release@v1
         with:
