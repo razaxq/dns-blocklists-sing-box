@@ -4,15 +4,18 @@ This repository automatically converts [HaGeZi's DNS Blocklists](https://github.
 
 ## Available Rule Sets
 
-The following rule sets are automatically updated daily and available in the [Releases](../../releases/latest) page:
+The following rule sets are automatically updated daily.
 
-| Rule Set | Description | Source | CDN Link (Fast) |
+- **Upstream Info**: Official documentation from HaGeZi explaining what is included in the blocklist.
+- **Download .srs**: The compiled Sing-box binary rule set, hosted on jsDelivr for fast access.
+
+| Rule Set | Description | Upstream Info | Download .srs (CDN) |
 | :--- | :--- | :--- | :--- |
-| `hagezi-light.srs` | Basic protection, low false positive rate. | [Link](https://github.com/hagezi/dns-blocklists#light) | [jsDelivr](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-light.srs) |
-| `hagezi-normal.srs` | Recommended for most users. | [Link](https://github.com/hagezi/dns-blocklists#normal) | [jsDelivr](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-normal.srs) |
-| `hagezi-pro.srs` | Better protection, slightly higher chance of false positives. | [Link](https://github.com/hagezi/dns-blocklists#pro) | [jsDelivr](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-pro.srs) |
-| `hagezi-pro-plus.srs` | Pro + more extensive lists. | [Link](https://github.com/hagezi/dns-blocklists#pro) | [jsDelivr](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-pro-plus.srs) |
-| `hagezi-ultimate.srs` | Maximum protection, for advanced users. | [Link](https://github.com/hagezi/dns-blocklists#ultimate) | [jsDelivr](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-ultimate.srs) |
+| `hagezi-light.srs` | Basic protection, low false positive rate. | [Read Docs](https://github.com/hagezi/dns-blocklists#light) | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-light.srs) |
+| `hagezi-normal.srs` | Recommended for most users. | [Read Docs](https://github.com/hagezi/dns-blocklists#normal) | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-normal.srs) |
+| `hagezi-pro.srs` | Better protection, slightly higher chance of false positives. | [Read Docs](https://github.com/hagezi/dns-blocklists#pro) | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-pro.srs) |
+| `hagezi-pro-plus.srs` | Pro + more extensive lists. | [Read Docs](https://github.com/hagezi/dns-blocklists#pro) | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-pro-plus.srs) |
+| `hagezi-ultimate.srs` | Maximum protection, for advanced users. | [Read Docs](https://github.com/hagezi/dns-blocklists#ultimate) | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-ultimate.srs) |
 
 ## Usage in Sing-box
 
