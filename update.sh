@@ -6,14 +6,15 @@ SING_BOX_VERSION="1.11.4" # Or "latest" logic, but pinned is safer for stability
 WORK_DIR="rule-set"
 mkdir -p "$WORK_DIR"
 
-# URLs for HaGeZi AdGuard Home formats
+# URLs for HaGeZi DNS Blocklists (Domains format)
+# We use cdn.jsdelivr.net for better availability and the 'domains' format which is compatible
 declare -A RULES
 RULES=(
-    ["hagezi-light"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adguard/light.txt"
-    ["hagezi-normal"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adguard/normal.txt"
-    ["hagezi-pro"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adguard/pro.txt"
-    ["hagezi-pro-plus"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adguard/pro.plus.txt"
-    ["hagezi-ultimate"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adguard/ultimate.txt"
+    ["hagezi-light"]="https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/light.txt"
+    ["hagezi-normal"]="https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/multi.txt"
+    ["hagezi-pro"]="https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/pro.txt"
+    ["hagezi-pro-plus"]="https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/pro.plus.txt"
+    ["hagezi-ultimate"]="https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/domains/ultimate.txt"
 )
 
 # 1. Download sing-box if not present
@@ -43,7 +44,7 @@ for NAME in "${!RULES[@]}"; do
     wget -qO "${NAME}.txt" "$URL"
     
     # Convert to SRS
-    # Using --type adguard as recommended
+    # Using --type adguard as it handles domain lists effectively (treated as exact matches or adblock syntax)
     ./sing-box rule-set convert --type adguard --output "$WORK_DIR/${NAME}.srs" "${NAME}.txt"
     
     # Clean up raw text file
