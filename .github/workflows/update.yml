@@ -50,5 +50,5 @@ jobs:
         run: |
           gh release list --limit 100 --json tagName -q '.[].tagName' | \
           sort -rV | \
-          tail -n +8 | \
+          tail -n +3 | \
           xargs -I {} gh release delete "{}" -y --cleanup-tag || true
