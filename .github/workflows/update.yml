@@ -16,6 +16,12 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Sync with Remote
+        run: |
+          git fetch origin main
+          git checkout main
+          git pull origin main
+
       - name: Get Date
         run: echo "DATE=$(date +%Y.%m.%d)" >> $GITHUB_ENV
 
@@ -30,7 +36,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git add rule-set/*.srs
           git commit -m "Auto-update rules ${{ env.DATE }} [skip ci]" || exit 0
-          git pull --rebase origin main
           git push
 
       - name: Create Release
