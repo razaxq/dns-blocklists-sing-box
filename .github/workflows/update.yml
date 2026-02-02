@@ -28,7 +28,7 @@ jobs:
       - name: Run Update Script
         run: |
           chmod +x update.sh
-          ./update.sh
+          ./update.sh || exit 1
 
       - name: Commit and Push Changes
         run: |

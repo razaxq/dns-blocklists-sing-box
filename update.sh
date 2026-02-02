@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-SING_BOX_VERSION="latest" # Or "latest" logic, but pinned is safer for stability
+SING_BOX_VERSION="1.11.4" # Pinned version for stability
 WORK_DIR="rule-set"
 mkdir -p "$WORK_DIR"
 
@@ -96,11 +96,18 @@ if ! command -v ./sing-box &> /dev/null; then
         *)       echo "Unsupported architecture: $ARCH"; exit 1 ;;
     esac
     
-    # We use the specific version to ensure compatibility
+    # Download specific version
     wget -qO- "https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}.tar.gz" | tar -xz
-    mv "sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}/sing-box" .
-    rm -rf "sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}"
-    chmod +x sing-box
+    
+    # Move binary
+    if [ -f "sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}/sing-box" ]; then
+        mv "sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}/sing-box" .
+        rm -rf "sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}"
+        chmod +x sing-box
+    else
+        echo "Error: Failed to download or extract sing-box."
+        exit 1
+    fi
 fi
 
 # 2. Process Rules
