@@ -1,0 +1,11 @@
+# Tools
+sing-box
+sing-box-*.tar.gz
+
+# Temp files
+*.txt
+!ABOUT_DESCRIPTION.txt
+
+# System
+.DS_Store
+Thumbs.db
