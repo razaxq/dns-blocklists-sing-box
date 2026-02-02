@@ -30,6 +30,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add rule-set/*.srs
           git commit -m "Auto-update rules ${{ env.DATE }} [skip ci]" || exit 0
+          git pull --rebase origin main
           git push
 
       - name: Create Release
