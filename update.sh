@@ -2,7 +2,7 @@
 set -e
 
 # Configuration
-SING_BOX_VERSION="1.11.4" # Or "latest" logic, but pinned is safer for stability
+SING_BOX_VERSION="latest" # Or "latest" logic, but pinned is safer for stability
 WORK_DIR="rule-set"
 mkdir -p "$WORK_DIR"
 
