@@ -17,6 +17,21 @@ The following rule sets are automatically updated daily.
 | `hagezi-pro.srs` | Better protection, slightly higher chance of false positives. | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-pro.srs) |
 | `hagezi-pro-plus.srs` | Pro + more extensive lists. | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-pro-plus.srs) |
 | `hagezi-ultimate.srs` | Maximum protection, for advanced users. | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-ultimate.srs) |
+| `1hosts-lite.srs` | 1Hosts Lite: Lightweight, low false positives. | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/1hosts-lite.srs) |
+| `1hosts-xtra.srs` | 1Hosts Xtra: Aggressive protection. | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/1hosts-xtra.srs) |
+| `adguard-dns-filter.srs` | AdGuard DNS Filter: Standard AdGuard protection. | [**Download**](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/adguard-dns-filter.srs) |
+
+### Additional Rule Sets
+
+We now support a wide range of additional rule sets covering:
+
+-   **Conventional:** AW Avenue, Dan Pollock, OISD (Big/Small), Peter Lowe, ShadowWhisperer, Steven Black.
+-   **Regional:** China (AdRules, anti-AD), Hungary, Indonesia, Iran, Israel, Korea, Lithuania, Macedonia, Norway, Poland, Sweden, Turkey, Vietnam.
+-   **Security:** Phishing, Malware, Badware, CNC, Cryptojacking, Typosquatting (URLHaus, PhishTank, etc.).
+-   **Specific:** Anti-Piracy, Gambling, Native Trackers (Apple, Samsung, Xiaomi, Windows, etc.), Smart TV, Game Console.
+
+Check the [`rule-set/`](rule-set/) directory for the full list of available `.srs` files.
+
 
 ## Usage in Sing-box
 
@@ -72,5 +87,8 @@ If you want to build the rules locally:
 
 ## Credits
 
--   **Blocklists:** [HaGeZi's DNS Blocklists](https://github.com/hagezi/dns-blocklists)
+-   **Blocklists:**
+    -   [HaGeZi's DNS Blocklists](https://github.com/hagezi/dns-blocklists)
+    -   [1Hosts](https://github.com/badmojr/1Hosts)
+    -   [AdGuard DNS Filter](https://github.com/AdguardTeam/AdGuardSDNSFilter)
 -   **Tool:** [Sing-box](https://github.com/SagerNet/sing-box)
