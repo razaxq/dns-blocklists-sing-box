@@ -39,7 +39,6 @@ The following rule sets are automatically updated daily. All files are hosted on
 | `hagezi-abused-tlds.srs` | HaGeZi: Most Abused TLDs. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-abused-tlds.srs) |
 | `hagezi-badware-hoster.srs` | HaGeZi: Badware Hoster. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-badware-hoster.srs) |
 | `hagezi-bypass.srs` | HaGeZi: DoH/VPN/Proxy Bypass. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-bypass.srs) |
-| `hagezi-dns-rebind.srs` | HaGeZi: DNS Rebind Protection. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-dns-rebind.srs) |
 | `hagezi-dyndns.srs` | HaGeZi: DynDNS. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-dyndns.srs) |
 | `hagezi-tif.srs` | HaGeZi: Threat Intelligence Feeds. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-tif.srs) |
 | `hagezi-url-shortener.srs` | HaGeZi: URL Shortener. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-url-shortener.srs) |
@@ -49,8 +48,6 @@ The following rule sets are automatically updated daily. All files are hosted on
 | `security-phishing.srs` | Phishing URL Blocklist. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/security-phishing.srs) |
 | `shadowwhisperer-malware.srs` | ShadowWhisperer Malware List. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/shadowwhisperer-malware.srs) |
 | `stalkerware.srs` | Stalkerware Indicators. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/stalkerware.srs) |
-| `ublock-badware.srs` | uBlock₀ filters – Badware risks. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/ublock-badware.srs) |
-| `urlhaus.srs` | Malicious URL Blocklist (URLHaus). | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/urlhaus.srs) |
 
 ### 🌍 Regional Lists
 | Rule Set | Description | Download |

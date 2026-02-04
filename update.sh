@@ -16,7 +16,6 @@ RULES=(
     ["1hosts-lite"]="https://cdn.jsdelivr.net/gh/badmojr/1Hosts@master/Lite/adblock.txt"
     ["1hosts-xtra"]="https://cdn.jsdelivr.net/gh/badmojr/1Hosts@master/Xtra/adblock.txt"
     ["adguard-dns-filter"]="https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt"
-    ["adguard-popup-hosts"]="https://adguardteam.github.io/AdGuardSDNSFilter/Filters/adguard_popup_filter.txt"
     ["aw-avenue-ads"]="https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt"
     ["dan-pollock"]="https://someonewhocares.org/hosts/zero/hosts"
     ["hagezi-normal"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt"
@@ -53,15 +52,10 @@ RULES=(
     ["idn-abpindo"]="https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/aghome.txt"
     ["irn-persianblocker"]="https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerHosts.txt"
     ["isr-easylist-hebrew"]="https://raw.githubusercontent.com/easylist/EasyListHebrew/master/hosts.txt"
-    ["kor-list-kr"]="https://raw.githubusercontent.com/List-KR/List-KR/master/filter-dns.txt"
     ["kor-youlist"]="https://raw.githubusercontent.com/yous/YousList/master/hosts.txt"
-    ["lit-easylist-lithuania"]="https://raw.githubusercontent.com/EasyList-Lithuania/easylist_lithuania/master/EasyListLithuaniaHosts.txt"
     ["mkd-macedonian"]="https://raw.githubusercontent.com/cchevy/macedonian-pi-hole-blocklist/master/hosts.txt"
     ["nor-dandelion-sprout"]="https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFiltersAdGuardHome.txt"
-    ["pol-cert-polska"]="https://hole.cert.pl/domains/v2/domains_adblock.txt"
     ["pol-filters"]="https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/polish-pihole-filters/hostfile.txt"
-    ["swe-frellwit"]="https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/Frellwits-Swedish-Hosts-File.txt"
-    ["tur-turk-adlist"]="https://raw.githubusercontent.com/bkrucarci/turk-adlist/master/hosts"
     ["tur-turkish-ad-hosts"]="https://raw.githubusercontent.com/symbuzzer/Turkish-Ad-Hosts/main/adguard/filter.txt"
     ["vnm-abpvn"]="https://abpvn.com/android/abpvn.txt"
 
@@ -69,7 +63,6 @@ RULES=(
     ["security-phishing"]="https://malware-filter.gitlab.io/malware-filter/phishing-filter-agh.txt"
     ["dandelion-sprout-anti-malware"]="https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareAdGuardHome.txt"
     ["hagezi-badware-hoster"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/hoster.txt"
-    ["hagezi-dns-rebind"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/adguard/dns-rebind-protection.txt"
     ["hagezi-dyndns"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/dyndns.txt"
     ["hagezi-bypass"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh-vpn-proxy-bypass.txt"
     ["hagezi-abused-tlds"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/spam-tlds.txt"
@@ -81,8 +74,6 @@ RULES=(
     ["shadowwhisperer-malware"]="https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Malware"
     ["stalkerware"]="https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/hosts"
     ["big-list-hacked-malware"]="https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hosts"
-    ["ublock-badware"]="https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt"
-    ["urlhaus"]="https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-agh.txt"
 )
 
 # 1. Download sing-box if not present
