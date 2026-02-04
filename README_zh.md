@@ -39,7 +39,6 @@
 | `hagezi-abused-tlds.srs` | HaGeZi: 滥用最严重的顶级域名。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-abused-tlds.srs) |
 | `hagezi-badware-hoster.srs` | HaGeZi: 恶意软件托管商。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-badware-hoster.srs) |
 | `hagezi-bypass.srs` | HaGeZi: DoH/VPN/代理绕过。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-bypass.srs) |
-| `hagezi-dns-rebind.srs` | HaGeZi: DNS 重绑定保护。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-dns-rebind.srs) |
 | `hagezi-dyndns.srs` | HaGeZi: 动态 DNS (DynDNS)。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-dyndns.srs) |
 | `hagezi-tif.srs` | HaGeZi: 威胁情报源 (TIF)。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-tif.srs) |
 | `hagezi-url-shortener.srs` | HaGeZi: 短链接拦截。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/hagezi-url-shortener.srs) |
@@ -49,8 +48,6 @@
 | `security-phishing.srs` | 钓鱼 URL 拦截列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/security-phishing.srs) |
 | `shadowwhisperer-malware.srs` | ShadowWhisperer 恶意软件列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/shadowwhisperer-malware.srs) |
 | `stalkerware.srs` | 跟踪软件指标。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/stalkerware.srs) |
-| `ublock-badware.srs` | uBlock₀ 恶意软件风险过滤器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/ublock-badware.srs) |
-| `urlhaus.srs` | 恶意 URL 拦截列表 (URLHaus)。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@main/rule-set/urlhaus.srs) |
 
 ### 🌍 区域列表
 | 规则集 | 描述 | 下载 |
