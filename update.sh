@@ -1,16 +1,25 @@
 #!/bin/bash
+set -euo pipefail
 
 # Configuration
-SING_BOX_VERSION="1.11.4" # Pinned version for stability
+SING_BOX_VERSION="${SING_BOX_VERSION:-1.11.4}"
 WORK_DIR="rule-set"
+PARALLEL_JOBS="${PARALLEL_JOBS:-8}"
+
+TMP_DIR="$(mktemp -d)"
+trap 'rm -rf "$TMP_DIR"' EXIT
+
 mkdir -p "$WORK_DIR"
 
-# URLs for HaGeZi DNS Blocklists (Domains format)
-# We use cdn.jsdelivr.net for better availability and the 'domains' format which is compatible
+# URLs for DNS Blocklists (AdGuard Home / domain list format).
 declare -A RULES
 RULES=(
-    # Existing
+    # HaGeZi Multi-Purpose
     ["hagezi-light"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/light.txt"
+    ["hagezi-normal"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt"
+    ["hagezi-pro"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt"
+    ["hagezi-pro-plus"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt"
+    ["hagezi-ultimate"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/ultimate.txt"
 
     # Conventional
     ["1hosts-lite"]="https://cdn.jsdelivr.net/gh/badmojr/1Hosts@master/Lite/adblock.txt"
@@ -18,10 +27,6 @@ RULES=(
     ["adguard-dns-filter"]="https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt"
     ["aw-avenue-ads"]="https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/AWAvenue-Ads-Rule.txt"
     ["dan-pollock"]="https://someonewhocares.org/hosts/zero/hosts"
-    ["hagezi-normal"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt"
-    ["hagezi-pro"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt"
-    ["hagezi-pro-plus"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt"
-    ["hagezi-ultimate"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/ultimate.txt"
     ["oisd-small"]="https://small.oisd.nl/"
     ["oisd-big"]="https://big.oisd.nl/"
     ["peter-lowe"]="https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=1&mimetype=plaintext"
@@ -77,20 +82,19 @@ RULES=(
 )
 
 # 1. Download sing-box if not present
-if ! command -v ./sing-box &> /dev/null; then
-    echo "Downloading sing-box..."
-    # Determine architecture
+if [ ! -x "./sing-box" ]; then
+    echo "Downloading sing-box v${SING_BOX_VERSION}..."
     ARCH=$(uname -m)
     case $ARCH in
         x86_64)  SB_ARCH="amd64" ;;
         aarch64) SB_ARCH="arm64" ;;
         *)       echo "Unsupported architecture: $ARCH"; exit 1 ;;
     esac
-    
-    # Download specific version
-    wget -qO- "https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}.tar.gz" | tar -xz
-    
-    # Move binary
+
+    curl -fsSL --retry 3 --retry-delay 2 --connect-timeout 10 --max-time 120 \
+        "https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}.tar.gz" \
+        | tar -xz
+
     if [ -f "sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}/sing-box" ]; then
         mv "sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}/sing-box" .
         rm -rf "sing-box-${SING_BOX_VERSION}-linux-${SB_ARCH}"
@@ -101,28 +105,58 @@ if ! command -v ./sing-box &> /dev/null; then
     fi
 fi
 
-# 2. Process Rules
-for NAME in "${!RULES[@]}"; do
-    URL="${RULES[$NAME]}"
-    echo "Processing $NAME from $URL..."
-    
-    # Download raw rule
-    if ! wget -qO "${NAME}.txt" "$URL"; then
-        echo "Failed to download $NAME from $URL"
-        continue
-    fi
-    
-    # Convert to SRS
-    # Using --type adguard as it handles domain lists effectively (treated as exact matches or adblock syntax)
-    if ./sing-box rule-set convert --type adguard --output "$WORK_DIR/${NAME}.srs" "${NAME}.txt"; then
-        echo "$NAME converted successfully."
-    else
-        echo "Failed to convert $NAME. It might be empty or contain unsupported rules."
-        rm -f "$WORK_DIR/${NAME}.srs" # Clean up if partial
-    fi
-    
-    # Clean up raw text file
-    rm "${NAME}.txt"
-done
+SING_BOX="$(pwd)/sing-box"
 
-echo "All rules processed. Files are in $WORK_DIR/"
+# 2. Per-rule worker: download -> validate -> convert -> atomic replace.
+# On any failure, the previous .srs is left untouched.
+process_rule() {
+    local name="$1"
+    local url="$2"
+    local tmp_txt="${TMP_DIR}/${name}.txt"
+    local tmp_srs="${TMP_DIR}/${name}.srs"
+    local out_srs="${WORK_DIR}/${name}.srs"
+
+    if ! curl -fsSL --retry 3 --retry-delay 2 --connect-timeout 10 --max-time 180 \
+            -A "Mozilla/5.0 (dns-blocklists-sing-box)" \
+            -o "$tmp_txt" "$url"; then
+        echo "[FAIL] download: $name"
+        return 1
+    fi
+
+    if [ ! -s "$tmp_txt" ]; then
+        echo "[FAIL] empty response: $name"
+        return 1
+    fi
+
+    if ! "$SING_BOX" rule-set convert --type adguard --output "$tmp_srs" "$tmp_txt" >/dev/null 2>&1; then
+        echo "[FAIL] convert: $name"
+        return 1
+    fi
+
+    if [ ! -s "$tmp_srs" ]; then
+        echo "[FAIL] empty srs: $name"
+        return 1
+    fi
+
+    mv -f "$tmp_srs" "$out_srs"
+    echo "[ OK ] $name"
+}
+export -f process_rule
+export TMP_DIR WORK_DIR SING_BOX
+
+# 3. Run in parallel via xargs. Each invocation gets one name + url.
+echo "Processing ${#RULES[@]} rules with parallelism ${PARALLEL_JOBS}..."
+feed_file="${TMP_DIR}/_feed"
+for name in "${!RULES[@]}"; do
+    printf '%s\n%s\n' "$name" "${RULES[$name]}"
+done > "$feed_file"
+
+# xargs exits non-zero if any child failed; we tolerate individual failures.
+set +e
+xargs -n 2 -P "$PARALLEL_JOBS" -a "$feed_file" \
+    bash -c 'process_rule "$1" "$2"' _
+xargs_rc=$?
+set -e
+
+ok_count=$(find "$WORK_DIR" -maxdepth 1 -name '*.srs' -type f | wc -l)
+echo "All rules processed. ${ok_count} .srs files in $WORK_DIR/ (xargs rc=${xargs_rc})."

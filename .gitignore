@@ -6,6 +6,9 @@ sing-box-*.tar.gz
 *.txt
 !ABOUT_DESCRIPTION.txt
 
+# Generated rule-sets (published to the `rule-set` branch by CI, not tracked on main)
+rule-set/*.srs
+
 # System
 .DS_Store
 Thumbs.db

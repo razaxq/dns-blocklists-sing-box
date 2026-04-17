@@ -8,6 +8,13 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-rules
+  cancel-in-progress: false
+
+env:
+  SING_BOX_VERSION: "1.11.4"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,36 +23,59 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Sync with Remote
-        run: |
-          git fetch origin main
-          git checkout main
-          git pull origin main
-
       - name: Get Date
         run: echo "DATE=$(date +%Y.%m.%d)" >> $GITHUB_ENV
 
+      - name: Cache sing-box binary
+        id: cache-sing-box
+        uses: actions/cache@v4
+        with:
+          path: sing-box
+          key: sing-box-${{ env.SING_BOX_VERSION }}-linux-amd64
+
       - name: Run Update Script
+        env:
+          SING_BOX_VERSION: ${{ env.SING_BOX_VERSION }}
+          PARALLEL_JOBS: "8"
         run: |
           chmod +x update.sh
-          ./update.sh || exit 1
+          ./update.sh
 
-      - name: Commit and Push Changes
+      - name: Publish to rule-set branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add rule-set/*.srs
-          git commit -m "Auto-update rules ${{ env.DATE }} [skip ci]" || exit 0
-          git push
+          # Build a fresh orphan branch containing only the latest .srs files.
+          # Force-pushing it replaces the whole branch each run, so the repo never
+          # accumulates historical blobs for the generated rule-sets.
+          #
+          # Baseline with the existing `rule-set` branch first (if any), then
+          # overlay today's successful outputs. That way, if a single upstream
+          # source fails to download today, its previous .srs is preserved.
+          tmpdir="$(mktemp -d)"
+          if git ls-remote --exit-code --heads origin rule-set >/dev/null 2>&1; then
+            git fetch --depth=1 origin rule-set
+            git archive origin/rule-set | tar -x -C "$tmpdir"
+          fi
+          cp -f rule-set/*.srs "$tmpdir/" 2>/dev/null || true
+
+          cd "$tmpdir"
+          git init -q -b rule-set
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add *.srs
+          git commit -q -m "Rules ${{ env.DATE }}"
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin rule-set
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ env.DATE }}
           name: Rules ${{ env.DATE }}
           files: rule-set/*.srs
           body: |
-            Auto-updated rules based on HaGeZi DNS blocklists.
+            Auto-updated rules based on popular DNS blocklists.
             Updated on: ${{ env.DATE }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
