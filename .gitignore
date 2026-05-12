@@ -8,6 +8,10 @@ sing-box-*.tar.gz
 
 # Generated rule-sets (published to the `rule-set` branch by CI, not tracked on main)
 rule-set/*.srs
+rule-set/.tmp-*
+
+# Markdown release body written by update.sh and consumed by the CI release step
+conversion-stats.md
 
 # System
 .DS_Store

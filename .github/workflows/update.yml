@@ -74,9 +74,7 @@ jobs:
           tag_name: v${{ env.DATE }}
           name: Rules ${{ env.DATE }}
           files: rule-set/*.srs
-          body: |
-            Auto-updated rules based on popular DNS blocklists.
-            Updated on: ${{ env.DATE }}
+          body_path: conversion-stats.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
