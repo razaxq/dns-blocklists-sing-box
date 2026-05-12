@@ -168,6 +168,16 @@ process_rule() {
     # AdBlock-Plus comments (!), and ABP headers ([Adblock Plus 2.0]).
     src_count=$(grep -cvE '^[[:space:]]*([#!\[]|$)' "$tmp_txt" 2>/dev/null || echo 0)
 
+    # Normalize hosts-file IPs to 0.0.0.0. sing-box's adguard converter only
+    # recognises hosts entries with a 0.0.0.0 prefix; sources like AdAway and
+    # Frellwit's Swedish Hosts use 127.0.0.1 / ::1, which would otherwise be
+    # silently dropped as "invalid domain" leaving an empty rule-set.
+    if sed -e 's/^127\.0\.0\.1[[:space:]]\+/0.0.0.0 /' \
+           -e 's/^::1[[:space:]]\+/0.0.0.0 /' \
+           "$tmp_txt" > "${tmp_txt}.norm" 2>/dev/null; then
+        mv -f "${tmp_txt}.norm" "$tmp_txt"
+    fi
+
     local convert_log="${TMP_DIR}/${name}.convert.err"
     if ! timeout 60 "$SING_BOX" rule-set convert --type adguard \
             --output "$tmp_srs" "$tmp_txt" >/dev/null 2>"$convert_log"; then
@@ -184,15 +194,28 @@ process_rule() {
         return 1
     fi
 
-    # Decompile to JSON and count DNS rule entries. Metrics-only, so failure
-    # here doesn't block publication — dst_count just stays 0 and the rate
-    # column shows "—". jq is preinstalled on ubuntu-latest; locally it's
-    # optional.
+    # Count output DNS entries. Two paths because sing-box's adguard converter
+    # emits two different .srs flavours and `decompile` only reverses one:
+    #   - hosts / plain-domain inputs → standard sing-box rules → decompile + jq
+    #   - ABP "||domain^" inputs      → binary AdGuard rules    → decompile
+    #     errors out, so we parse `parsed rules: X/Y` from the converter log
+    #     (sing-box only emits this summary for the ABP branch).
+    # Metrics-only — failure to count never blocks publication; dst_count just
+    # stays 0 and the rate column shows "—".
     local tmp_json="${TMP_DIR}/${name}.json"
     if "$SING_BOX" rule-set decompile --output "$tmp_json" "$tmp_srs" 2>/dev/null \
             && [ -s "$tmp_json" ] && command -v jq >/dev/null 2>&1; then
         dst_count=$(jq '[.rules[]? | (.domain // []) + (.domain_suffix // []) + (.domain_keyword // []) + (.domain_regex // []) | length] | add // 0' \
             "$tmp_json" 2>/dev/null || echo 0)
+    fi
+    if [ "$dst_count" -eq 0 ]; then
+        local parsed_x
+        parsed_x=$(grep -oE 'parsed rules: [0-9]+/[0-9]+' "$convert_log" 2>/dev/null \
+                   | head -n1 \
+                   | sed 's|parsed rules: \([0-9]*\)/.*|\1|')
+        if [ -n "$parsed_x" ]; then
+            dst_count="$parsed_x"
+        fi
     fi
 
     mv -f "$tmp_srs" "$out_srs"
