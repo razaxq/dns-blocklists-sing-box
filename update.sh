@@ -16,6 +16,7 @@ trap 'rm -rf "$TMP_DIR"' EXIT
 STATS_FILE="${TMP_DIR}/_stats.tsv"
 : > "$STATS_FILE"
 RELEASE_BODY="${RELEASE_BODY:-conversion-stats.md}"
+RULE_NAMES="${RULE_NAMES:-rule-names.txt}"
 
 # URLs for DNS Blocklists (AdGuard Home / domain list format).
 declare -A RULES
@@ -59,7 +60,6 @@ RULES=(
     ["oisd-nsfw"]="https://nsfw.oisd.nl/"
     ["smart-tv"]="https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV-AGH.txt"
     ["shadowwhisperer-dating"]="https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Dating"
-    ["ukrainian-security"]="https://raw.githubusercontent.com/braveinnovators/ukrainian-security-filter/main/lists/domains.txt"
 
     # Regional
     ["chn-adrules"]="https://raw.githubusercontent.com/Cats-Team/AdRules/main/dns.txt"
@@ -99,8 +99,14 @@ RULES=(
     ["big-list-hacked-malware"]="https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hosts"
 )
 
-# 1. Download sing-box if not present
-if [ ! -x "./sing-box" ]; then
+# 1. Download sing-box if missing, or if the local binary is a different version
+# than $SING_BOX_VERSION -- an `-x` check alone means bumping the version keeps
+# silently using the stale binary (CI is safe via the cache key, local runs are not).
+need_sing_box=1
+if [ -x "./sing-box" ] && ./sing-box version 2>/dev/null | grep -qF "$SING_BOX_VERSION"; then
+    need_sing_box=0
+fi
+if [ "$need_sing_box" -eq 1 ]; then
     echo "Downloading sing-box v${SING_BOX_VERSION}..."
     ARCH=$(uname -m)
     case $ARCH in
@@ -135,10 +141,11 @@ process_rule() {
     local tmp_txt="${TMP_DIR}/${name}.txt"
     local tmp_srs="${TMP_DIR}/${name}.srs"
     local out_srs="${WORK_DIR}/${name}.srs"
-    local src_count=0 dst_count=0
+    local src_count=0 dst_count=0 count_known=0
 
     # Atomic small-line append; xargs -P workers won't tear each other's rows
-    # because writes < PIPE_BUF (4096B) under O_APPEND are atomic on Linux.
+    # because printf is a builtin (a single write() call) and O_APPEND makes the
+    # seek-to-end + write atomic for regular files on Linux.
     record() {
         printf '%s\t%d\t%d\t%s\t%s\n' "$name" "$src_count" "$dst_count" "$1" "${2-}" >> "$STATS_FILE"
     }
@@ -166,20 +173,24 @@ process_rule() {
 
     # Count source rule-like lines: skip blanks, hosts/plain comments (#),
     # AdBlock-Plus comments (!), and ABP headers ([Adblock Plus 2.0]).
-    src_count=$(grep -cvE '^[[:space:]]*([#!\[]|$)' "$tmp_txt" 2>/dev/null || echo 0)
+    # `grep -c` prints 0 *and* exits 1 when nothing matches, so `|| echo 0` used
+    # to append a second line ("0\n0") and break the %d in record(). `[` is kept
+    # outside the bracket expression too: inside brackets a backslash is literal,
+    # so `[#!\[]` also skipped lines starting with a backslash.
+    src_count=$(grep -cvE '^[[:space:]]*([#!]|\[|$)' "$tmp_txt" 2>/dev/null) || true
+    src_count=${src_count:-0}
 
     # Normalize hosts-file IPs to 0.0.0.0. sing-box's adguard converter only
     # recognises hosts entries with a 0.0.0.0 prefix; sources like AdAway and
     # Frellwit's Swedish Hosts use 127.0.0.1 / ::1, which would otherwise be
     # silently dropped as "invalid domain" leaving an empty rule-set.
-    if sed -e 's/^127\.0\.0\.1[[:space:]]\+/0.0.0.0 /' \
-           -e 's/^::1[[:space:]]\+/0.0.0.0 /' \
+    if sed -E 's/^[[:space:]]*(127\.0\.0\.1|0\.0\.0\.0|::1|::)[[:space:]]+/0.0.0.0 /' \
            "$tmp_txt" > "${tmp_txt}.norm" 2>/dev/null; then
         mv -f "${tmp_txt}.norm" "$tmp_txt"
     fi
 
     local convert_log="${TMP_DIR}/${name}.convert.err"
-    if ! timeout 60 "$SING_BOX" rule-set convert --type adguard \
+    if ! timeout 180 "$SING_BOX" rule-set convert --type adguard \
             --output "$tmp_srs" "$tmp_txt" >/dev/null 2>"$convert_log"; then
         local reason
         reason=$(head -n1 "$convert_log" | tr -d '\r' | cut -c1-200)
@@ -200,13 +211,23 @@ process_rule() {
     #   - ABP "||domain^" inputs      → binary AdGuard rules    → decompile
     #     errors out, so we parse `parsed rules: X/Y` from the converter log
     #     (sing-box only emits this summary for the ABP branch).
-    # Metrics-only — failure to count never blocks publication; dst_count just
-    # stays 0 and the rate column shows "—".
+    # $count_known records whether *either* path produced a number, so a
+    # dst_count of 0 can be told apart from "could not count". Unknown never
+    # blocks publication; the rate column just shows "—".
     local tmp_json="${TMP_DIR}/${name}.json"
-    if "$SING_BOX" rule-set decompile --output "$tmp_json" "$tmp_srs" 2>/dev/null \
-            && [ -s "$tmp_json" ] && command -v jq >/dev/null 2>&1; then
-        dst_count=$(jq '[.rules[]? | (.domain // []) + (.domain_suffix // []) + (.domain_keyword // []) + (.domain_regex // []) | length] | add // 0' \
-            "$tmp_json" 2>/dev/null || echo 0)
+    local n
+    if command -v jq >/dev/null 2>&1 \
+            && "$SING_BOX" rule-set decompile --output "$tmp_json" "$tmp_srs" 2>/dev/null \
+            && [ -s "$tmp_json" ]; then
+        # Type-tolerant on purpose: sing-box marshals a single-element list as a
+        # bare string, which the old `(.domain // []) + ...` could not add.
+        if n=$(jq '[.rules[]? | (.domain, .domain_suffix, .domain_keyword, .domain_regex)
+                    | if type == "array" then length
+                      elif type == "string" then 1
+                      else 0 end] | add // 0' "$tmp_json" 2>/dev/null) && [ -n "$n" ]; then
+            dst_count="$n"
+            count_known=1
+        fi
     fi
     if [ "$dst_count" -eq 0 ]; then
         local parsed_x
@@ -215,7 +236,18 @@ process_rule() {
                    | sed 's|parsed rules: \([0-9]*\)/.*|\1|')
         if [ -n "$parsed_x" ]; then
             dst_count="$parsed_x"
+            count_known=1
         fi
+    fi
+
+    # A .srs holding a valid header but zero domains is still a non-empty file,
+    # so the `-s` check above cannot catch it. Publishing one silently wipes a
+    # working rule-set (exactly the failure mode the 127.0.0.1 normalisation
+    # above was added for). Refuse it and keep the previous .srs instead.
+    if [ "$count_known" -eq 1 ] && [ "$dst_count" -eq 0 ]; then
+        echo "[FAIL] zero domains after convert: $name"
+        record fail zero-domains
+        return 1
     fi
 
     mv -f "$tmp_srs" "$out_srs"
@@ -232,15 +264,23 @@ for name in "${!RULES[@]}"; do
     printf '%s\n%s\n' "$name" "${RULES[$name]}"
 done > "$feed_file"
 
+# Authoritative list of rule names for this run. The CI publish step diffs the
+# rule-set branch against it to retire .srs files no longer produced here.
+printf '%s\n' "${!RULES[@]}" | sort > "$RULE_NAMES"
+
 # xargs exits non-zero if any child failed; we tolerate individual failures.
 set +e
-xargs -n 2 -P "$PARALLEL_JOBS" -a "$feed_file" \
+# -d '\n': the feed is one field per line, and xargs' default parsing would
+# otherwise interpret quotes and backslashes inside a URL.
+xargs -d '\n' -n 2 -P "$PARALLEL_JOBS" -a "$feed_file" \
     bash -c 'process_rule "$1" "$2"' _
 xargs_rc=$?
 set -e
 
-ok_count=$(find "$WORK_DIR" -maxdepth 1 -name '*.srs' -type f | wc -l)
-echo "All rules processed. ${ok_count} .srs files in $WORK_DIR/ (xargs rc=${xargs_rc})."
+# Counted from the stats file rather than from *.srs on disk: a local re-run
+# keeps earlier runs' outputs around, which used to inflate this number.
+ok_count=$(grep -c "$(printf '\tok\t')" "$STATS_FILE" 2>/dev/null) || true
+echo "All rules processed. ${ok_count:-0}/${#RULES[@]} rules OK (xargs rc=${xargs_rc})."
 
 # 4. Build the Markdown release body from $STATS_FILE so the Releases page
 # shows the per-rule conversion ratio. The workflow uses this via `body_path`.

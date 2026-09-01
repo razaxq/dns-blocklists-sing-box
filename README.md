@@ -76,7 +76,6 @@ The following rule sets are automatically updated daily. All files are hosted on
 | `pol-filters.srs` | 🇵🇱 POL: Polish filters. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/pol-filters.srs) |
 | `swe-frellwits.srs` | 🇸🇪 SWE: Frellwit's Swedish Hosts. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/swe-frellwits.srs) |
 | `tur-turkish-ad-hosts.srs` | 🇹🇷 TUR: Turkish Ad Hosts. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/tur-turkish-ad-hosts.srs) |
-| `ukrainian-security.srs` | 🇺🇦 UKR: Ukrainian Security Filter. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/ukrainian-security.srs) |
 | `vnm-abpvn.srs` | 🇻🇳 VNM: ABPVN List. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/vnm-abpvn.srs) |
 
 ### 🔧 Specific & Other
@@ -198,7 +197,6 @@ If you want to build the rules locally:
     -   [Turk Adlist](https://github.com/bkrucarci/turk-adlist)
     -   [Turkish Ad Hosts](https://github.com/symbuzzer/Turkish-Ad-Hosts)
     -   [uBlock Origin](https://github.com/uBlockOrigin/uAssets)
-    -   [Ukrainian Security Filter](https://github.com/braveinnovators/ukrainian-security-filter)
     -   [URLHaus](https://urlhaus.abuse.ch/)
     -   [YouList](https://github.com/yous/YousList)
 -   **Tool:** [Sing-box](https://github.com/SagerNet/sing-box)

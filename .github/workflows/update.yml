@@ -52,14 +52,35 @@ jobs:
           # Baseline with the existing `rule-set` branch first (if any), then
           # overlay today's successful outputs. That way, if a single upstream
           # source fails to download today, its previous .srs is preserved.
-          tmpdir="$(mktemp -d)"
+          #
+          # Then retire whatever update.sh no longer produces, so a rule dropped
+          # from update.sh leaves the branch instead of being served frozen
+          # forever. Note this is a breaking change for that rule: its published
+          # address (@rule-set/<name>.srs) starts returning 404, so only remove
+          # a rule from update.sh when you mean to withdraw it.
+          #
+          # `publish/` lives in the workspace (not mktemp) so the Release step
+          # can upload the same merged set that this branch gets.
+          rm -rf publish && mkdir -p publish
           if git ls-remote --exit-code --heads origin rule-set >/dev/null 2>&1; then
             git fetch --depth=1 origin rule-set
-            git archive origin/rule-set | tar -x -C "$tmpdir"
+            git archive origin/rule-set | tar -x -C publish
           fi
-          cp -f rule-set/*.srs "$tmpdir/" 2>/dev/null || true
+          cp -f rule-set/*.srs publish/ 2>/dev/null || true
 
-          cd "$tmpdir"
+          # rule-names.txt is written by update.sh and lists every rule it knows
+          # about, including ones that failed today (those keep their baseline
+          # .srs). Anything on the branch that is missing from it is retired.
+          for f in publish/*.srs; do
+            [ -e "$f" ] || continue
+            name="$(basename "$f" .srs)"
+            if ! grep -qxF "$name" rule-names.txt; then
+              echo "Retiring $name.srs (no longer produced by update.sh)"
+              rm -f "$f"
+            fi
+          done
+
+          cd publish
           git init -q -b rule-set
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
@@ -73,7 +94,7 @@ jobs:
         with:
           tag_name: v${{ env.DATE }}
           name: Rules ${{ env.DATE }}
-          files: rule-set/*.srs
+          files: publish/*.srs
           body_path: conversion-stats.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

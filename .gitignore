@@ -10,8 +10,14 @@ sing-box-*.tar.gz
 rule-set/*.srs
 rule-set/.tmp-*
 
+# Merged rule-set staging dir built by the CI publish step
+publish/
+
 # Markdown release body written by update.sh and consumed by the CI release step
 conversion-stats.md
+
+# Rule-name manifest written by update.sh and consumed by the CI publish step
+rule-names.txt
 
 # System
 .DS_Store

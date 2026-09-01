@@ -76,7 +76,6 @@
 | `pol-filters.srs` | 🇵🇱 POL: 波兰过滤器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/pol-filters.srs) |
 | `swe-frellwits.srs` | 🇸🇪 SWE: Frellwit 瑞典语 Hosts。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/swe-frellwits.srs) |
 | `tur-turkish-ad-hosts.srs` | 🇹🇷 TUR: 土耳其广告 Hosts。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/tur-turkish-ad-hosts.srs) |
-| `ukrainian-security.srs` | 🇺🇦 UKR: 乌克兰安全过滤器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/ukrainian-security.srs) |
 | `vnm-abpvn.srs` | 🇻🇳 VNM: ABPVN 列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/vnm-abpvn.srs) |
 
 ### 🔧 特定与其他
@@ -196,7 +195,6 @@
     -   [Turk Adlist](https://github.com/bkrucarci/turk-adlist)
     -   [Turkish Ad Hosts](https://github.com/symbuzzer/Turkish-Ad-Hosts)
     -   [uBlock Origin](https://github.com/uBlockOrigin/uAssets)
-    -   [Ukrainian Security Filter](https://github.com/braveinnovators/ukrainian-security-filter)
     -   [URLHaus](https://urlhaus.abuse.ch/)
     -   [YouList](https://github.com/yous/YousList)
 -   **Tool:** [Sing-box](https://github.com/SagerNet/sing-box)
