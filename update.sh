@@ -42,6 +42,7 @@ RULES=(
     ["peter-lowe"]="https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=1&mimetype=plaintext"
     ["shadowwhisperer-tracking"]="https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Tracking"
     ["steven-black"]="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+    ["frogeye-firstparty"]="https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt"
 
     # Other
     ["dandelion-sprout-push"]="https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AdGuard%20Home%20Compilation%20List/AdGuardHomeCompilationList-Notifications.txt"
@@ -60,6 +61,17 @@ RULES=(
     ["oisd-nsfw"]="https://nsfw.oisd.nl/"
     ["smart-tv"]="https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV-AGH.txt"
     ["shadowwhisperer-dating"]="https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Dating"
+    ["hagezi-nsfw"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/nsfw.txt"
+    ["hagezi-popup-ads"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/popupads.txt"
+    ["hagezi-safesearch"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/nosafesearch.txt"
+    ["hagezi-social"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/social.txt"
+    ["hagezi-tracker-amazon"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/native.amazon.txt"
+    ["hagezi-tracker-huawei"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/native.huawei.txt"
+    ["hagezi-tracker-lg-webos"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/native.lgwebos.txt"
+    ["hagezi-tracker-roku"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/native.roku.txt"
+    ["hagezi-tracker-tiktok"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/native.tiktok.txt"
+    ["oisd-nsfw-small"]="https://nsfw-small.oisd.nl/"
+    ["windows-spy-blocker"]="https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt"
 
     # Regional
     ["chn-adrules"]="https://raw.githubusercontent.com/Cats-Team/AdRules/main/dns.txt"
@@ -80,6 +92,7 @@ RULES=(
     ["swe-frellwits"]="https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/master/Frellwits-Swedish-Hosts-File.txt"
     ["tur-turkish-ad-hosts"]="https://raw.githubusercontent.com/symbuzzer/Turkish-Ad-Hosts/main/adguard/filter.txt"
     ["vnm-abpvn"]="https://abpvn.com/android/abpvn.txt"
+    ["pol-cert-polska"]="https://adguardteam.github.io/HostlistsRegistry/assets/filter_41.txt"
 
     # Security
     ["security-phishing"]="https://malware-filter.gitlab.io/malware-filter/phishing-filter-agh.txt"
@@ -97,6 +110,9 @@ RULES=(
     ["shadowwhisperer-malware"]="https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Malware"
     ["stalkerware"]="https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/hosts"
     ["big-list-hacked-malware"]="https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/master/hosts"
+    ["hagezi-doh"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/doh.txt"
+    ["hagezi-fake"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt"
+    ["ublock-badware"]="https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt"
 )
 
 # 1. Download sing-box if missing, or if the local binary is a different version

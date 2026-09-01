@@ -30,6 +30,7 @@ The following rule sets are automatically updated daily. All files are hosted on
 | `aw-avenue-ads.srs` | AW Avenue Ads Rule. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/aw-avenue-ads.srs) |
 | `dan-pollock.srs` | Dan Pollock’s List. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/dan-pollock.srs) |
 | `disconnect-ads.srs` | Disconnect: Curated ad domains. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/disconnect-ads.srs) |
+| `frogeye-firstparty.srs` | Frogeye: First-party trackers. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/frogeye-firstparty.srs) |
 | `goodbye-ads.srs` | Goodbye Ads: Mobile / YouTube focus. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/goodbye-ads.srs) |
 | `oisd-big.srs` | OISD Big: Comprehensive blocklist. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/oisd-big.srs) |
 | `oisd-small.srs` | OISD Small: Basic ad blocking. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/oisd-small.srs) |
@@ -45,7 +46,9 @@ The following rule sets are automatically updated daily. All files are hosted on
 | `hagezi-abused-tlds.srs` | HaGeZi: Most Abused TLDs. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-abused-tlds.srs) |
 | `hagezi-badware-hoster.srs` | HaGeZi: Badware Hoster. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-badware-hoster.srs) |
 | `hagezi-bypass.srs` | HaGeZi: DoH/VPN/Proxy Bypass. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-bypass.srs) |
+| `hagezi-doh.srs` | HaGeZi: DNS-over-HTTPS servers. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-doh.srs) |
 | `hagezi-dyndns.srs` | HaGeZi: DynDNS. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-dyndns.srs) |
+| `hagezi-fake.srs` | HaGeZi: Fake stores & scam sites. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-fake.srs) |
 | `hagezi-tif.srs` | HaGeZi: Threat Intelligence Feeds. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tif.srs) |
 | `hagezi-url-shortener.srs` | HaGeZi: URL Shortener. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-url-shortener.srs) |
 | `mullvad-privacy.srs` | Mullvad: Privacy / tracker domains. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/mullvad-privacy.srs) |
@@ -55,6 +58,7 @@ The following rule sets are automatically updated daily. All files are hosted on
 | `security-phishing.srs` | Phishing URL Blocklist. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/security-phishing.srs) |
 | `shadowwhisperer-malware.srs` | ShadowWhisperer Malware List. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/shadowwhisperer-malware.srs) |
 | `stalkerware.srs` | Stalkerware Indicators. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/stalkerware.srs) |
+| `ublock-badware.srs` | uBlock Origin: Badware risks. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/ublock-badware.srs) |
 
 ### 🌍 Regional Lists
 | Rule Set | Description | Download |
@@ -73,6 +77,7 @@ The following rule sets are automatically updated daily. All files are hosted on
 | `ltu-easylist.srs` | 🇱🇹 LTU: EasyList Lithuania. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/ltu-easylist.srs) |
 | `mkd-macedonian.srs` | 🇲🇰 MKD: Macedonian Blocklist. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/mkd-macedonian.srs) |
 | `nor-dandelion-sprout.srs` | 🇳🇴 NOR: Dandelion Sprouts. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/nor-dandelion-sprout.srs) |
+| `pol-cert-polska.srs` | 🇵🇱 POL: CERT Polska malicious domains. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/pol-cert-polska.srs) |
 | `pol-filters.srs` | 🇵🇱 POL: Polish filters. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/pol-filters.srs) |
 | `swe-frellwits.srs` | 🇸🇪 SWE: Frellwit's Swedish Hosts. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/swe-frellwits.srs) |
 | `tur-turkish-ad-hosts.srs` | 🇹🇷 TUR: Turkish Ad Hosts. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/tur-turkish-ad-hosts.srs) |
@@ -86,17 +91,28 @@ The following rule sets are automatically updated daily. All files are hosted on
 | `hagezi-allowlist-referral.srs` | HaGeZi: Allowlist Referral. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-allowlist-referral.srs) |
 | `hagezi-anti-piracy.srs` | HaGeZi: Anti-Piracy. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-anti-piracy.srs) |
 | `hagezi-gambling.srs` | HaGeZi: Gambling. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-gambling.srs) |
+| `hagezi-nsfw.srs` | HaGeZi: Adult content. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-nsfw.srs) |
+| `hagezi-popup-ads.srs` | HaGeZi: Pop-Up Ads. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-popup-ads.srs) |
+| `hagezi-safesearch.srs` | HaGeZi: Safe search enforcement. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-safesearch.srs) |
+| `hagezi-social.srs` | HaGeZi: Social media domains. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-social.srs) |
+| `hagezi-tracker-amazon.srs` | HaGeZi: Amazon Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-amazon.srs) |
 | `hagezi-tracker-apple.srs` | HaGeZi: Apple Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-apple.srs) |
+| `hagezi-tracker-huawei.srs` | HaGeZi: Huawei Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-huawei.srs) |
+| `hagezi-tracker-lg-webos.srs` | HaGeZi: LG webOS Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-lg-webos.srs) |
 | `hagezi-tracker-oppo-realme.srs` | HaGeZi: OPPO/Realme Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-oppo-realme.srs) |
+| `hagezi-tracker-roku.srs` | HaGeZi: Roku Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-roku.srs) |
 | `hagezi-tracker-samsung.srs` | HaGeZi: Samsung Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-samsung.srs) |
+| `hagezi-tracker-tiktok.srs` | HaGeZi: TikTok Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-tiktok.srs) |
 | `hagezi-tracker-vivo.srs` | HaGeZi: Vivo Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-vivo.srs) |
 | `hagezi-tracker-windows.srs` | HaGeZi: Windows/Office Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-windows.srs) |
 | `hagezi-tracker-xiaomi.srs` | HaGeZi: Xiaomi Tracker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-xiaomi.srs) |
 | `mullvad-social.srs` | Mullvad: Social media domains. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/mullvad-social.srs) |
 | `no-google.srs` | No Google. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/no-google.srs) |
+| `oisd-nsfw-small.srs` | OISD NSFW Small: Lightweight adult content. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/oisd-nsfw-small.srs) |
 | `oisd-nsfw.srs` | OISD NSFW: Adult content. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/oisd-nsfw.srs) |
 | `shadowwhisperer-dating.srs` | ShadowWhisperer Dating List. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/shadowwhisperer-dating.srs) |
 | `smart-tv.srs` | Smart TV Blocklist. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/smart-tv.srs) |
+| `windows-spy-blocker.srs` | WindowsSpyBlocker: Windows telemetry. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/windows-spy-blocker.srs) |
 
 
 
@@ -167,6 +183,7 @@ If you want to build the rules locally:
     -   [anti-AD](https://github.com/privacy-protection-tools/anti-AD)
     -   [AW Avenue Ads Rule](https://github.com/TG-Twilight/AWAvenue-Ads-Rule)
     -   [Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites)
+    -   [CERT Polska](https://cert.pl/)
     -   [Dan Pollock](https://someonewhocares.org/hosts/)
     -   [Dandelion Sprout](https://github.com/DandelionSprout/adfilt)
     -   [Disconnect](https://disconnect.me/)
@@ -175,6 +192,7 @@ If you want to build the rules locally:
     -   [EasyList Lithuania](https://github.com/EasyList-Lithuania/easylist_lithuania)
     -   [EasyList Spanish](https://github.com/easylist/easylistspanish)
     -   [Frellwit's Swedish Hosts](https://github.com/lassekongo83/Frellwits-filter-lists)
+    -   [Frogeye](https://hostfiles.frogeye.fr/)
     -   [Goodbye Ads](https://github.com/jerryn70/GoodbyeAds)
     -   [HaGeZi's DNS Blocklists](https://github.com/hagezi/dns-blocklists)
     -   [Hufilter](https://github.com/hufilter/hufilter)
@@ -198,5 +216,6 @@ If you want to build the rules locally:
     -   [Turkish Ad Hosts](https://github.com/symbuzzer/Turkish-Ad-Hosts)
     -   [uBlock Origin](https://github.com/uBlockOrigin/uAssets)
     -   [URLHaus](https://urlhaus.abuse.ch/)
+    -   [WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker)
     -   [YouList](https://github.com/yous/YousList)
 -   **Tool:** [Sing-box](https://github.com/SagerNet/sing-box)

@@ -30,6 +30,7 @@
 | `aw-avenue-ads.srs` | AW Avenue 广告规则。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/aw-avenue-ads.srs) |
 | `dan-pollock.srs` | Dan Pollock 的列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/dan-pollock.srs) |
 | `disconnect-ads.srs` | Disconnect: 精选广告域名。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/disconnect-ads.srs) |
+| `frogeye-firstparty.srs` | Frogeye: 第一方追踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/frogeye-firstparty.srs) |
 | `goodbye-ads.srs` | Goodbye Ads: 移动端/YouTube 重点。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/goodbye-ads.srs) |
 | `oisd-big.srs` | OISD Big: 综合拦截列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/oisd-big.srs) |
 | `oisd-small.srs` | OISD Small: 基础广告拦截。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/oisd-small.srs) |
@@ -45,7 +46,9 @@
 | `hagezi-abused-tlds.srs` | HaGeZi: 滥用最严重的顶级域名。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-abused-tlds.srs) |
 | `hagezi-badware-hoster.srs` | HaGeZi: 恶意软件托管商。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-badware-hoster.srs) |
 | `hagezi-bypass.srs` | HaGeZi: DoH/VPN/代理绕过。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-bypass.srs) |
+| `hagezi-doh.srs` | HaGeZi: DNS-over-HTTPS 服务器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-doh.srs) |
 | `hagezi-dyndns.srs` | HaGeZi: 动态 DNS (DynDNS)。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-dyndns.srs) |
+| `hagezi-fake.srs` | HaGeZi: 假冒商店与诈骗站点。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-fake.srs) |
 | `hagezi-tif.srs` | HaGeZi: 威胁情报源 (TIF)。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tif.srs) |
 | `hagezi-url-shortener.srs` | HaGeZi: 短链接拦截。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-url-shortener.srs) |
 | `mullvad-privacy.srs` | Mullvad: 隐私/跟踪器域名。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/mullvad-privacy.srs) |
@@ -55,6 +58,7 @@
 | `security-phishing.srs` | 钓鱼 URL 拦截列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/security-phishing.srs) |
 | `shadowwhisperer-malware.srs` | ShadowWhisperer 恶意软件列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/shadowwhisperer-malware.srs) |
 | `stalkerware.srs` | 跟踪软件指标。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/stalkerware.srs) |
+| `ublock-badware.srs` | uBlock Origin: 恶意软件风险。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/ublock-badware.srs) |
 
 ### 🌍 区域列表
 | 规则集 | 描述 | 下载 |
@@ -73,6 +77,7 @@
 | `ltu-easylist.srs` | 🇱🇹 LTU: EasyList 立陶宛语。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/ltu-easylist.srs) |
 | `mkd-macedonian.srs` | 🇲🇰 MKD: 马其顿拦截列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/mkd-macedonian.srs) |
 | `nor-dandelion-sprout.srs` | 🇳🇴 NOR: Dandelion Sprouts。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/nor-dandelion-sprout.srs) |
+| `pol-cert-polska.srs` | 🇵🇱 POL: CERT Polska 恶意域名。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/pol-cert-polska.srs) |
 | `pol-filters.srs` | 🇵🇱 POL: 波兰过滤器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/pol-filters.srs) |
 | `swe-frellwits.srs` | 🇸🇪 SWE: Frellwit 瑞典语 Hosts。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/swe-frellwits.srs) |
 | `tur-turkish-ad-hosts.srs` | 🇹🇷 TUR: 土耳其广告 Hosts。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/tur-turkish-ad-hosts.srs) |
@@ -86,17 +91,28 @@
 | `hagezi-allowlist-referral.srs` | HaGeZi: 推荐白名单。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-allowlist-referral.srs) |
 | `hagezi-anti-piracy.srs` | HaGeZi: 反盗版。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-anti-piracy.srs) |
 | `hagezi-gambling.srs` | HaGeZi: 赌博网站。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-gambling.srs) |
+| `hagezi-nsfw.srs` | HaGeZi: 成人内容。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-nsfw.srs) |
+| `hagezi-popup-ads.srs` | HaGeZi: 弹窗广告。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-popup-ads.srs) |
+| `hagezi-safesearch.srs` | HaGeZi: 强制安全搜索。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-safesearch.srs) |
+| `hagezi-social.srs` | HaGeZi: 社交媒体域名。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-social.srs) |
+| `hagezi-tracker-amazon.srs` | HaGeZi: 亚马逊追踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-amazon.srs) |
 | `hagezi-tracker-apple.srs` | HaGeZi: Apple 跟踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-apple.srs) |
+| `hagezi-tracker-huawei.srs` | HaGeZi: 华为追踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-huawei.srs) |
+| `hagezi-tracker-lg-webos.srs` | HaGeZi: LG webOS 追踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-lg-webos.srs) |
 | `hagezi-tracker-oppo-realme.srs` | HaGeZi: OPPO/Realme 跟踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-oppo-realme.srs) |
+| `hagezi-tracker-roku.srs` | HaGeZi: Roku 追踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-roku.srs) |
 | `hagezi-tracker-samsung.srs` | HaGeZi: Samsung 跟踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-samsung.srs) |
+| `hagezi-tracker-tiktok.srs` | HaGeZi: TikTok 追踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-tiktok.srs) |
 | `hagezi-tracker-vivo.srs` | HaGeZi: Vivo 跟踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-vivo.srs) |
 | `hagezi-tracker-windows.srs` | HaGeZi: Windows/Office 跟踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-windows.srs) |
 | `hagezi-tracker-xiaomi.srs` | HaGeZi: Xiaomi 跟踪器。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-tracker-xiaomi.srs) |
 | `mullvad-social.srs` | Mullvad: 社交媒体域名。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/mullvad-social.srs) |
 | `no-google.srs` | 去 Google 列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/no-google.srs) |
+| `oisd-nsfw-small.srs` | OISD NSFW Small: 轻量成人内容。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/oisd-nsfw-small.srs) |
 | `oisd-nsfw.srs` | OISD NSFW: 成人内容。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/oisd-nsfw.srs) |
 | `shadowwhisperer-dating.srs` | ShadowWhisperer 约会网站列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/shadowwhisperer-dating.srs) |
 | `smart-tv.srs` | 智能电视拦截列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/smart-tv.srs) |
+| `windows-spy-blocker.srs` | WindowsSpyBlocker: Windows 遥测。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/windows-spy-blocker.srs) |
 
 ## 在 Sing-box 中使用
 
@@ -165,6 +181,7 @@
     -   [anti-AD](https://github.com/privacy-protection-tools/anti-AD)
     -   [AW Avenue Ads Rule](https://github.com/TG-Twilight/AWAvenue-Ads-Rule)
     -   [Big List of Hacked Malware Web Sites](https://github.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites)
+    -   [CERT Polska](https://cert.pl/)
     -   [Dan Pollock](https://someonewhocares.org/hosts/)
     -   [Dandelion Sprout](https://github.com/DandelionSprout/adfilt)
     -   [Disconnect](https://disconnect.me/)
@@ -173,6 +190,7 @@
     -   [EasyList Lithuania](https://github.com/EasyList-Lithuania/easylist_lithuania)
     -   [EasyList Spanish](https://github.com/easylist/easylistspanish)
     -   [Frellwit's Swedish Hosts](https://github.com/lassekongo83/Frellwits-filter-lists)
+    -   [Frogeye](https://hostfiles.frogeye.fr/)
     -   [Goodbye Ads](https://github.com/jerryn70/GoodbyeAds)
     -   [HaGeZi's DNS Blocklists](https://github.com/hagezi/dns-blocklists)
     -   [Hufilter](https://github.com/hufilter/hufilter)
@@ -196,5 +214,6 @@
     -   [Turkish Ad Hosts](https://github.com/symbuzzer/Turkish-Ad-Hosts)
     -   [uBlock Origin](https://github.com/uBlockOrigin/uAssets)
     -   [URLHaus](https://urlhaus.abuse.ch/)
+    -   [WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker)
     -   [YouList](https://github.com/yous/YousList)
 -   **Tool:** [Sing-box](https://github.com/SagerNet/sing-box)
