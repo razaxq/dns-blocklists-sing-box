@@ -65,16 +65,12 @@ The following rule sets are automatically updated daily. All files are hosted on
 | :--- | :--- | :--- |
 | `chn-adrules.srs` | 🇨🇳 CHN: AdRules DNS List. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/chn-adrules.srs) |
 | `chn-anti-ad.srs` | 🇨🇳 CHN: anti-AD. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/chn-anti-ad.srs) |
-| `cze-svk-easylist.srs` | 🇨🇿🇸🇰 CZE/SVK: EasyList Czech and Slovak. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/cze-svk-easylist.srs) |
-| `esp-easylist.srs` | 🇪🇸 ESP: EasyList Spanish. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/esp-easylist.srs) |
 | `hun-hufilter.srs` | 🇭🇺 HUN: Hufilter. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hun-hufilter.srs) |
 | `idn-abpindo.srs` | 🇮🇩 IDN: ABPindo. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/idn-abpindo.srs) |
 | `irn-persianblocker.srs` | 🇮🇷 IRN: PersianBlocker. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/irn-persianblocker.srs) |
 | `isr-easylist-hebrew.srs` | 🇮🇱 ISR: EasyList Hebrew. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/isr-easylist-hebrew.srs) |
-| `jpn-tofukko.srs` | 🇯🇵 JPN: 豆腐フィルタ (tofukko). | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/jpn-tofukko.srs) |
 | `kor-list-kr.srs` | 🇰🇷 KOR: List-KR DNS (AdGuard HLR). | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/kor-list-kr.srs) |
 | `kor-youlist.srs` | 🇰🇷 KOR: YouList. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/kor-youlist.srs) |
-| `ltu-easylist.srs` | 🇱🇹 LTU: EasyList Lithuania. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/ltu-easylist.srs) |
 | `mkd-macedonian.srs` | 🇲🇰 MKD: Macedonian Blocklist. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/mkd-macedonian.srs) |
 | `nor-dandelion-sprout.srs` | 🇳🇴 NOR: Dandelion Sprouts. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/nor-dandelion-sprout.srs) |
 | `pol-cert-polska.srs` | 🇵🇱 POL: CERT Polska malicious domains. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/pol-cert-polska.srs) |
@@ -86,7 +82,6 @@ The following rule sets are automatically updated daily. All files are hosted on
 ### 🔧 Specific & Other
 | Rule Set | Description | Download |
 | :--- | :--- | :--- |
-| `dandelion-sprout-game-console.srs` | Game Console Adblock. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/dandelion-sprout-game-console.srs) |
 | `dandelion-sprout-push.srs` | Anti Push Notifications. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/dandelion-sprout-push.srs) |
 | `hagezi-allowlist-referral.srs` | HaGeZi: Allowlist Referral. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-allowlist-referral.srs) |
 | `hagezi-anti-piracy.srs` | HaGeZi: Anti-Piracy. | [Download](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-anti-piracy.srs) |
@@ -187,10 +182,7 @@ If you want to build the rules locally:
     -   [Dan Pollock](https://someonewhocares.org/hosts/)
     -   [Dandelion Sprout](https://github.com/DandelionSprout/adfilt)
     -   [Disconnect](https://disconnect.me/)
-    -   [EasyList Czech and Slovak](https://github.com/tomasko126/easylistczechandslovak)
     -   [EasyList Hebrew](https://github.com/easylist/EasyListHebrew)
-    -   [EasyList Lithuania](https://github.com/EasyList-Lithuania/easylist_lithuania)
-    -   [EasyList Spanish](https://github.com/easylist/easylistspanish)
     -   [Frellwit's Swedish Hosts](https://github.com/lassekongo83/Frellwits-filter-lists)
     -   [Frogeye](https://hostfiles.frogeye.fr/)
     -   [Goodbye Ads](https://github.com/jerryn70/GoodbyeAds)
@@ -211,7 +203,6 @@ If you want to build the rules locally:
     -   [ShadowWhisperer](https://github.com/ShadowWhisperer/BlockLists)
     -   [Stalkerware Indicators](https://github.com/AssoEchap/stalkerware-indicators)
     -   [Steven Black](https://github.com/StevenBlack/hosts)
-    -   [tofukko フィルタ](https://tofukko.r.ribbon.to/abp.html)
     -   [Turk Adlist](https://github.com/bkrucarci/turk-adlist)
     -   [Turkish Ad Hosts](https://github.com/symbuzzer/Turkish-Ad-Hosts)
     -   [uBlock Origin](https://github.com/uBlockOrigin/uAssets)

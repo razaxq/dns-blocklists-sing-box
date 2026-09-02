@@ -46,7 +46,6 @@ RULES=(
 
     # Other
     ["dandelion-sprout-push"]="https://raw.githubusercontent.com/DandelionSprout/adfilt/master/AdGuard%20Home%20Compilation%20List/AdGuardHomeCompilationList-Notifications.txt"
-    ["dandelion-sprout-game-console"]="https://raw.githubusercontent.com/DandelionSprout/adfilt/master/GameConsoleAdblockList.txt"
     ["hagezi-allowlist-referral"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/whitelist-referral.txt"
     ["hagezi-anti-piracy"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/anti.piracy.txt"
     ["hagezi-tracker-apple"]="https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/native.apple.txt"
@@ -76,16 +75,12 @@ RULES=(
     # Regional
     ["chn-adrules"]="https://raw.githubusercontent.com/Cats-Team/AdRules/main/dns.txt"
     ["chn-anti-ad"]="https://anti-ad.net/adguard.txt"
-    ["cze-svk-easylist"]="https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt"
-    ["esp-easylist"]="https://easylist-downloads.adblockplus.org/easylistspanish.txt"
     ["hun-hufilter"]="https://cdn.jsdelivr.net/gh/hufilter/hufilter@gh-pages/hufilter-dns.txt"
     ["idn-abpindo"]="https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/aghome.txt"
     ["irn-persianblocker"]="https://raw.githubusercontent.com/MasterKia/PersianBlocker/main/PersianBlockerHosts.txt"
     ["isr-easylist-hebrew"]="https://raw.githubusercontent.com/easylist/EasyListHebrew/master/hosts.txt"
-    ["jpn-tofukko"]="https://raw.githubusercontent.com/tofukko/filter/master/Adblock_Plus_list.txt"
     ["kor-list-kr"]="https://cdn.jsdelivr.net/gh/adguardteam/HostlistsRegistry@main/assets/filter_25.txt"
     ["kor-youlist"]="https://raw.githubusercontent.com/yous/YousList/master/hosts.txt"
-    ["ltu-easylist"]="https://raw.githubusercontent.com/EasyList-Lithuania/easylist_lithuania/master/easylistlithuania.txt"
     ["mkd-macedonian"]="https://raw.githubusercontent.com/cchevy/macedonian-pi-hole-blocklist/master/hosts.txt"
     ["nor-dandelion-sprout"]="https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFiltersAdGuardHome.txt"
     ["pol-filters"]="https://raw.githubusercontent.com/MajkiIT/polish-ads-filter/master/polish-pihole-filters/hostfile.txt"

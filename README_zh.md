@@ -65,16 +65,12 @@
 | :--- | :--- | :--- |
 | `chn-adrules.srs` | 🇨🇳 CHN: AdRules DNS 列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/chn-adrules.srs) |
 | `chn-anti-ad.srs` | 🇨🇳 CHN: anti-AD。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/chn-anti-ad.srs) |
-| `cze-svk-easylist.srs` | 🇨🇿🇸🇰 CZE/SVK: 捷克/斯洛伐克 EasyList。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/cze-svk-easylist.srs) |
-| `esp-easylist.srs` | 🇪🇸 ESP: 西班牙语 EasyList。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/esp-easylist.srs) |
 | `hun-hufilter.srs` | 🇭🇺 HUN: Hufilter。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hun-hufilter.srs) |
 | `idn-abpindo.srs` | 🇮🇩 IDN: ABPindo。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/idn-abpindo.srs) |
 | `irn-persianblocker.srs` | 🇮🇷 IRN: PersianBlocker。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/irn-persianblocker.srs) |
 | `isr-easylist-hebrew.srs` | 🇮🇱 ISR: EasyList Hebrew。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/isr-easylist-hebrew.srs) |
-| `jpn-tofukko.srs` | 🇯🇵 JPN: 豆腐フィルタ (日语)。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/jpn-tofukko.srs) |
 | `kor-list-kr.srs` | 🇰🇷 KOR: List-KR DNS (AdGuard HLR)。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/kor-list-kr.srs) |
 | `kor-youlist.srs` | 🇰🇷 KOR: YouList。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/kor-youlist.srs) |
-| `ltu-easylist.srs` | 🇱🇹 LTU: EasyList 立陶宛语。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/ltu-easylist.srs) |
 | `mkd-macedonian.srs` | 🇲🇰 MKD: 马其顿拦截列表。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/mkd-macedonian.srs) |
 | `nor-dandelion-sprout.srs` | 🇳🇴 NOR: Dandelion Sprouts。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/nor-dandelion-sprout.srs) |
 | `pol-cert-polska.srs` | 🇵🇱 POL: CERT Polska 恶意域名。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/pol-cert-polska.srs) |
@@ -86,7 +82,6 @@
 ### 🔧 特定与其他
 | 规则集 | 描述 | 下载 |
 | :--- | :--- | :--- |
-| `dandelion-sprout-game-console.srs` | 游戏主机广告拦截。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/dandelion-sprout-game-console.srs) |
 | `dandelion-sprout-push.srs` | 拦截推送通知。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/dandelion-sprout-push.srs) |
 | `hagezi-allowlist-referral.srs` | HaGeZi: 推荐白名单。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-allowlist-referral.srs) |
 | `hagezi-anti-piracy.srs` | HaGeZi: 反盗版。 | [下载](https://cdn.jsdelivr.net/gh/razaxq/dns-blocklists-sing-box@rule-set/hagezi-anti-piracy.srs) |
@@ -185,10 +180,7 @@
     -   [Dan Pollock](https://someonewhocares.org/hosts/)
     -   [Dandelion Sprout](https://github.com/DandelionSprout/adfilt)
     -   [Disconnect](https://disconnect.me/)
-    -   [EasyList Czech and Slovak](https://github.com/tomasko126/easylistczechandslovak)
     -   [EasyList Hebrew](https://github.com/easylist/EasyListHebrew)
-    -   [EasyList Lithuania](https://github.com/EasyList-Lithuania/easylist_lithuania)
-    -   [EasyList Spanish](https://github.com/easylist/easylistspanish)
     -   [Frellwit's Swedish Hosts](https://github.com/lassekongo83/Frellwits-filter-lists)
     -   [Frogeye](https://hostfiles.frogeye.fr/)
     -   [Goodbye Ads](https://github.com/jerryn70/GoodbyeAds)
@@ -209,7 +201,6 @@
     -   [ShadowWhisperer](https://github.com/ShadowWhisperer/BlockLists)
     -   [Stalkerware Indicators](https://github.com/AssoEchap/stalkerware-indicators)
     -   [Steven Black](https://github.com/StevenBlack/hosts)
-    -   [tofukko フィルタ](https://tofukko.r.ribbon.to/abp.html)
     -   [Turk Adlist](https://github.com/bkrucarci/turk-adlist)
     -   [Turkish Ad Hosts](https://github.com/symbuzzer/Turkish-Ad-Hosts)
     -   [uBlock Origin](https://github.com/uBlockOrigin/uAssets)
