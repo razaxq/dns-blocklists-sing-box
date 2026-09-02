@@ -21,14 +21,14 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Get Date
-        run: echo "DATE=$(date +%Y.%m.%d)" >> $GITHUB_ENV
+        run: echo "DATE=$(date -u +%Y.%m.%d)" >> $GITHUB_ENV
 
       - name: Cache sing-box binary
         id: cache-sing-box
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: sing-box
           key: sing-box-${{ env.SING_BOX_VERSION }}-linux-amd64
@@ -90,7 +90,7 @@ jobs:
           git push --force origin rule-set
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: v${{ env.DATE }}
           name: Rules ${{ env.DATE }}
